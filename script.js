@@ -45,7 +45,7 @@ function playGame(){
                     case "paper":
                         if(computerChoice == "scissor"){
                             console.log("You lose! Scissor beats paper");
-                            computerChoice++;
+                            computerScore++;
                         }else{
                             console.log("You win! Paper beats Rock");
                             humanScore++;
@@ -55,7 +55,7 @@ function playGame(){
                     case "scissor":
                         if(computerChoice = "rock"){
                             console.log("You lose! Rock beats Scissor");
-                            computerChoice++;
+                            computerScore++;
                         }else{
                             console.log("You win! Scissor beats Paper");
                             humanScore++;
