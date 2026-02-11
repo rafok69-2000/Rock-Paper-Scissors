@@ -53,7 +53,7 @@ function playGame(){
                     break;
 
                     case "scissor":
-                        if(computerChoice = "rock"){
+                        if(computerChoice == "rock"){
                             console.log("You lose! Rock beats Scissor");
                             computerScore++;
                         }else{
