@@ -28,30 +28,37 @@ let humanScore = 0;
 let computerScore = 0;
 
 
+const resul = document.querySelector("#res");
 
 function playRound(humanChoice, computerChoice) {
 
     humanChoice = humanChoice.toLowerCase();
+    
+    const human = document.createElement("p");
+    const computer = document.createElement("p");
 
-    console.log(`Computer says: ${computerChoice}`);
-    console.log(`Human says: ${humanChoice}`);
+    human.textContent = `Human says: ${humanChoice}`;
+    computer.textContent = `Computer says: ${computerChoice}`;
+
+    const whyWin = document.createElement("p");
 
     if (humanChoice === computerChoice) {
-        console.log("Dead Heat!");
+        whyWin.textContent = `Dead Heat!`
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        whyWin.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        whyWin.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     }
 
-    console.log(`Computer: ${computerScore}`);
-    console.log(`Human: ${humanScore}`);
+    resul.appendChild(human);
+    resul.appendChild(computer);
+    resul.appendChild(whyWin);
 }   
         
  
