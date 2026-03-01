@@ -1,3 +1,18 @@
+const btnRock = document.querySelector("#rock");
+const btnPaper = document.querySelector("#paper");
+const btnScissor = document.querySelector("#scissor");
+
+btnRock.addEventListener("click", function(){
+    playRound("rock", getComputerChoice())
+});
+
+btnPaper.addEventListener("click", function(){
+    playRound("paper", getComputerChoice());
+});
+
+btnScissor.addEventListener("click", function(){
+    playRound("scissor", getComputerChoice())
+});
 
 function getComputerChoice(){
   let option = Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -9,18 +24,10 @@ function getComputerChoice(){
     return "scissor"
 }
 
-function getHumanChoice(){
-   let optionHuman = prompt("Rock, paper or scissor");
-   return optionHuman
-}
-
 let humanScore = 0;
 let computerScore = 0;
 
 
-function playGame(){
-
-    for(i = 0; i < 5; i++){
 
         function playRound(humanChoice, computerChoice){
             humanChoice = humanChoice.toLowerCase();
@@ -66,13 +73,8 @@ function playGame(){
             }
 
         }   
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
+        
  
-    }
-}
+    
 
-playGame();
 
