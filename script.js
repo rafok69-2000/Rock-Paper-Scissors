@@ -3,15 +3,27 @@ const btnPaper = document.querySelector("#paper");
 const btnScissor = document.querySelector("#scissor");
 
 btnRock.addEventListener("click", function(){
-    playRound("rock", getComputerChoice())
+    if(humanScore < 5 && computerScore < 5){
+        playRound("rock", getComputerChoice());
+    }else{
+        alert("Game over")
+    }
 });
 
 btnPaper.addEventListener("click", function(){
-    playRound("paper", getComputerChoice());
+    if(humanScore < 5 && computerScore < 5){
+        playRound("paper", getComputerChoice());
+    }else{
+        alert("Game over")
+    }
 });
 
 btnScissor.addEventListener("click", function(){
-    playRound("scissor", getComputerChoice())
+    if(humanScore < 5 && computerScore < 5){
+        playRound("scissor", getComputerChoice());
+    }else{
+        alert("Game over")
+    }    
 });
 
 function getComputerChoice(){
@@ -33,7 +45,7 @@ const resul = document.querySelector("#res");
 function playRound(humanChoice, computerChoice) {
 
     humanChoice = humanChoice.toLowerCase();
-    
+   
     const human = document.createElement("p");
     const computer = document.createElement("p");
 
@@ -45,9 +57,9 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
         whyWin.textContent = `Dead Heat!`
     } else if (
-        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "rock" && computerChoice === "scissor") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper")
+        (humanChoice === "scissor" && computerChoice === "paper")
     ) {
         whyWin.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
@@ -56,12 +68,26 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
 
+    const win = document.createElement("p");
+
+    if(humanScore == 5){
+        win.textContent = `You win`;
+    }else if (computerScore == 5){
+        win.textContent = `Computers win`;
+    }
+
+    const resHuman = document.createElement("p");
+    const resComputer = document.createElement("p");
+
+    resHuman.textContent = `Human: ${humanScore}`;
+    resComputer.textContent = `Computer: ${computerScore}`;
+
     resul.appendChild(human);
     resul.appendChild(computer);
     resul.appendChild(whyWin);
-}   
-        
- 
-    
+    resul.appendChild(resHuman);
+    resul.appendChild(resComputer);
+    resul.appendChild(win);
+    }   
 
 
